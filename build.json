@@ -9,5 +9,6 @@
     ]
   ],
   "outputDir": "docs",
-  "publicPath": "/weather/"
+  "publicPath": "/weather/",
+  "pwa": true
 }
