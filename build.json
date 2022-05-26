@@ -9,6 +9,5 @@
     ]
   ],
   "outputDir": "docs",
-  "publicPath": "/weather/",
-  "pwa": true
+  "publicPath": "https://caixianglin.github.io/weather/"
 }
