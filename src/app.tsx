@@ -1,4 +1,5 @@
 import { runApp, IAppConfig } from 'ice';
+import VConsole from 'vconsole';
 
 const appConfig: IAppConfig = {
   app: {
@@ -8,5 +9,7 @@ const appConfig: IAppConfig = {
     type: 'hash',
   },
 };
+
+new VConsole();
 
 runApp(appConfig);
