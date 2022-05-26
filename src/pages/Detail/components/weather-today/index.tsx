@@ -12,7 +12,7 @@ export default function Today(props: TodayProp) {
   return (
     <div className={styles.today}>
       <img className={styles.img} src={WeathersStatus[weather?.main]} />
-      <div className={styles.address}>{location && location.city && location.city.length !== 0 ? `${location.city},` : ''}<br />{location?.province}</div>
+      <div className={styles.address}>{location?.city},<br />{location?.province}</div>
       <div className={styles.temp}>{weather.temp}<i>℃</i></div>
       <ul>
         {
