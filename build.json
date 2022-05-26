@@ -7,5 +7,6 @@
         "libraryName": "antd"
       }
     ]
-  ]
+  ],
+  "outputDir": "docs"
 }

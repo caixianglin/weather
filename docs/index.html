@@ -1,9 +1,7 @@
-<!DOCTYPE html>
-<html>
-  <head>
-    <meta charset="utf-8" />
-    <meta http-equiv="x-ua-compatible" content="ie=edge,chrome=1" />
-    <meta name="viewport" content="width=device-width" />
+<!DOCTYPE html><html><head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge,chrome=1">
+    <meta name="viewport" content="width=device-width">
     <title>天气H5</title>
     <script>
       const env = '<%= process.env.NODE_ENV === "development" %>';
@@ -18,9 +16,12 @@
         });
        }
     </script>
+    <script type="module" crossorigin src="/js/index.js"></script>
+    <link rel="stylesheet" href="/css/index3.css">
   </head>
 
   <body>
     <div id="ice-container"></div>
-  </body>
-</html>
+  
+
+</body></html>
