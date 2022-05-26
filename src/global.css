@@ -1,0 +1,23 @@
+@import 'antd/dist/antd.css';
+@font-face {
+  font-family: 'AlegreyaSans';
+  src: url('./assets/fonts/AlegreyaSans-Regular.ttf') format('truetype');
+}
+
+body {
+  overflow: hidden;
+  -webkit-font-smoothing: antialiased;
+  font-family: 'AlegreyaSans';
+}
+
+ul,
+li {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+#ice-container {
+  height: 100%;
+  overflow: auto;
+}
