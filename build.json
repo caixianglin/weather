@@ -8,6 +8,5 @@
       }
     ]
   ],
-  "outputDir": "docs",
-  "publicPath": "https://caixianglin.github.io/weather/docs/"
+  "outputDir": "docs"
 }
