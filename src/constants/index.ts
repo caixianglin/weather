@@ -138,8 +138,7 @@ const TIPS = {
 };
 
 const GAODE_KEY = '2051ae217b9ccf12766ce915a8b83dba';
-const WEATHER_KEY = '5329ece50e04a1bd3c4c826d6f3e2340'
-// 'f76b1064c9ad61102446d5bfae54f1f2';
+const WEATHER_KEY = 'f76b1064c9ad61102446d5bfae54f1f2';
 
 export {
   DotsInfo,
