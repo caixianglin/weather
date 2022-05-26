@@ -5,19 +5,6 @@
     <meta http-equiv="x-ua-compatible" content="ie=edge,chrome=1" />
     <meta name="viewport" content="width=device-width" />
     <title>天气H5</title>
-    <script>
-      const env = '<%= process.env.NODE_ENV === "development" %>';
-      if ('serviceWorker' in navigator) {
-        window.addEventListener('load', () => {
-          const path = env === 'true' ? '/' : '/weather/';
-            navigator.serviceWorker.register(`${path}service-worker.js`).then(registration => {
-            console.log('SW registered: ', registration);
-          }).catch(registrationError => {
-            console.log('SW registration failed: ', registrationError);
-          });
-        });
-       }
-    </script>
   </head>
 
   <body>

@@ -24,7 +24,7 @@ export default function Detail() {
   useEffect(() => {
     getWeather();
   }, []);
-console.log(1, weatherState.weather)
+
   return (
     <div className={styles.detail}>
       <img className={styles.img} src={backUrl} onClick={() => {

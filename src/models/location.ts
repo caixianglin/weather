@@ -27,12 +27,14 @@ export default {
       dispatch.location.update({
         location: data,
       });
+      return data;
     },
     async getLocationAddress(params) {
       const data = await useService.getLocationRegeo(params);
       dispatch.location.update({
         addressComponent: data
       });
+      return data;
     }
   })
 };
