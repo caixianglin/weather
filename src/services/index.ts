@@ -56,7 +56,7 @@ export default {
         method: 'GET',
         params: {
           key: GAODE_KEY,
-          Location: params.location,
+          location: params.location,
         }
       });
       if (result && result.regeocode) {

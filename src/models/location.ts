@@ -32,9 +32,9 @@ export default {
     async getLocationAddress(params) {
       const data = await useService.getLocationRegeo(params);
       dispatch.location.update({
-        addressComponent: data
+        addressComponent: data || {}
       });
-      return data;
+      return data || {};
     }
   })
 };

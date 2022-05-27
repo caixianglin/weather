@@ -17,7 +17,7 @@ export default function Home() {
 
   const getAddress = async (params: location) => {
     await locationAction.getLocationAddress({
-      location: `${params.longitude},${params.latitude}`,
+      location: `${params?.longitude || 0},${params?.latitude || 0}`,
     })
   }
 
