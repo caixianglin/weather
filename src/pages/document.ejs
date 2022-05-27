@@ -8,7 +8,7 @@
     const env = '<%= process.env.NODE_ENV === "development" %>';
    if ('serviceWorker' in navigator) {
       window.addEventListener('load', () => {
-        const path = env === 'true' ? '/' : '/weather/';
+        const path = env === 'true' ? '/' : 'https://caixianglin.github.io/weather/';
           navigator.serviceWorker.register(`${path}weather-service-worker.js`).then(registration => {
           console.log('SW registered: ', registration);
           }).catch(registrationError => {

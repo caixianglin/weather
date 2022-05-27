@@ -11,7 +11,8 @@
       const env = "false";
       if ("serviceWorker" in navigator) {
         window.addEventListener("load", () => {
-          const path = env === "true" ? "/" : "/weather/";
+          const path =
+            env === "true" ? "/" : "https://caixianglin.github.io/weather/";
           navigator.serviceWorker
             .register(`${path}weather-service-worker.js`)
             .then((registration) => {
@@ -23,9 +24,12 @@
         });
       }
     </script>
-    <link rel="stylesheet" href="/weather/umi.css" />
+    <link
+      rel="stylesheet"
+      href="https://caixianglin.github.io/weather/umi.css"
+    />
     <script>
-      window.routerBase = "/weather/";
+      window.routerBase = "https://caixianglin.github.io/weather/";
     </script>
     <script>
       //! umi version: 3.5.24
@@ -34,6 +38,6 @@
   <body>
     <div id="root"></div>
 
-    <script src="/weather/umi.js"></script>
+    <script src="https://caixianglin.github.io/weather/umi.js"></script>
   </body>
 </html>

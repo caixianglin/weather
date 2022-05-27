@@ -1,7 +1,10 @@
 import { defineConfig } from 'umi';
 const { GenerateSW } = require('workbox-webpack-plugin');
 
-const repo = process.env.NODE_ENV === 'development' ? '/' : '/weather/';
+const repo =
+  process.env.NODE_ENV === 'development'
+    ? '/'
+    : 'https://caixianglin.github.io/weather/';
 
 const mfsu =
   process.env.NODE_ENV === 'development'
