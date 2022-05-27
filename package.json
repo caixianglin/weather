@@ -1,40 +1,45 @@
 {
-  "name": "@icedesign/ice-antd-scaffold",
-  "version": "0.1.0",
-  "description": "Ant Design and icejs scaffold, use TypeScript.",
+  "private": true,
+  "scripts": {
+    "start": "umi dev",
+    "build": "umi build",
+    "postinstall": "umi generate tmp",
+    "prettier": "prettier --write '**/*.{js,jsx,tsx,ts,less,md,json}'",
+    "test": "umi-test",
+    "test:coverage": "umi-test --coverage"
+  },
+  "gitHooks": {
+    "pre-commit": "lint-staged"
+  },
+  "lint-staged": {
+    "*.{js,jsx,less,md,json}": [
+      "prettier --write"
+    ],
+    "*.ts?(x)": [
+      "prettier --parser=typescript --write"
+    ]
+  },
   "dependencies": {
-    "@ant-design/icons": "^4.0.2",
-    "@ant-design/pro-layout": "^6.5.1",
+    "@ant-design/pro-layout": "^6.5.0",
     "@antv/f2": "^4.0.21",
     "@antv/f2-react": "^4.0.21",
-    "antd": "^4.0.0",
-    "moment": "^2.24.0",
-    "prop-types": "^15.5.8",
-    "react": "^17.0.2",
-    "react-dom": "^17.0.2",
-    "vconsole": "^3.14.6"
+    "moment": "^2.29.3",
+    "react": "17.x",
+    "react-dom": "17.x",
+    "umi": "^3.5.24",
+    "umi-request": "^1.4.0",
+    "url-loader": "^4.1.1"
   },
   "devDependencies": {
-    "@iceworks/spec": "^1.0.1",
-    "@types/react": "^17.0.14",
-    "@types/react-dom": "^17.0.9",
-    "build-plugin-antd": "^0.1.2",
-    "build-plugin-ignore-style": "^0.1.0",
-    "eslint": "^7.30.0",
-    "ice.js": "^2.0.0",
-    "stylelint": "^13.1.0"
-  },
-  "scripts": {
-    "start": "icejs start",
-    "build": "icejs build",
-    "lint": "npm run eslint && npm run stylelint",
-    "eslint": "eslint --cache --ext .js,.jsx ./",
-    "stylelint": "stylelint ./**/*.scss"
-  },
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/ice-lab/react-materials/tree/master/scaffolds/antd-lite"
-  },
-  "private": true,
-  "originTemplate": "@icedesign/ice-antd-scaffold"
+    "@types/react": "^17.0.0",
+    "@types/react-dom": "^17.0.0",
+    "@umijs/preset-react": "1.x",
+    "@umijs/test": "^3.5.24",
+    "file-loader": "^6.2.0",
+    "lint-staged": "^10.0.7",
+    "prettier": "^2.2.0",
+    "typescript": "^4.1.2",
+    "workbox-webpack-plugin": "^6.5.3",
+    "yorkie": "^2.0.0"
+  }
 }

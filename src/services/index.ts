@@ -1,4 +1,4 @@
-import { request } from 'ice';
+import request from 'umi-request';
 import { TIPS, GAODE_KEY, WEATHER_KEY } from '@/constants';
 import { location, locationParams, weatherParams } from '@/types';
 
@@ -42,8 +42,8 @@ export default {
         return;
       }
 
-      reject(TIPS.NO_LOCATION)
-    })
+      reject(TIPS.NO_LOCATION);
+    });
   },
 
   /**
@@ -51,14 +51,18 @@ export default {
    */
   async getLocationRegeo(params: locationParams) {
     try {
-      const result = await request({
-        url: 'https://restapi.amap.com/v3/geocode/regeo',
-        method: 'GET',
-        params: {
-          key: GAODE_KEY,
-          location: params.location,
-        }
-      });
+      const result = await request(
+        'https://restapi.amap.com/v3/geocode/regeo',
+        {
+          method: 'GET',
+          useCache: true,
+          timeout: 0,
+          params: {
+            key: GAODE_KEY,
+            location: params.location,
+          },
+        },
+      );
       if (result && result.regeocode) {
         return result.regeocode.addressComponent;
       }
@@ -70,23 +74,27 @@ export default {
   /**
    * 根据经纬度获取天气
    */
-   async getWeather(params: weatherParams) {
+  async getWeather(params: weatherParams) {
     try {
-      const result = await request({
-        url: 'https://api.openweathermap.org/data/2.5/onecall',
-        method: 'GET',
-        params: {
-          appid: WEATHER_KEY,
-          lat: params.lat,
-          lon: params.lon,
-          exclude: params.exclude,
-          units: 'metric',
-          lang: 'zh_cn',
-        }
-      });
+      const result = await request(
+        'https://api.openweathermap.org/data/2.5/onecall',
+        {
+          method: 'GET',
+          useCache: true,
+          timeout: 0,
+          params: {
+            appid: WEATHER_KEY,
+            lat: params.lat,
+            lon: params.lon,
+            exclude: params.exclude,
+            units: 'metric',
+            lang: 'zh_cn',
+          },
+        },
+      );
       return result;
     } catch (err) {
       console.error(err);
     }
-  }
+  },
 };

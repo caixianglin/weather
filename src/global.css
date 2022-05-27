@@ -1,4 +1,3 @@
-@import 'antd/dist/antd.css';
 @font-face {
   font-family: 'AlegreyaSans';
   src: url('./assets/fonts/AlegreyaSans-Regular.ttf') format('truetype');
@@ -17,7 +16,7 @@ li {
   padding: 0;
 }
 
-#ice-container {
+#root {
   height: 100%;
   overflow: auto;
 }
