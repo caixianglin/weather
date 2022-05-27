@@ -12,8 +12,8 @@ export default defineConfig({
     type: 'none',
   },
   routes: [
-    { path: '/', component: '@/pages/Home' },
-    { path: '/detail', component: '@/pages/Detail' },
+    { path: '/', component: '@/pages/home/index' },
+    { path: '/detail', component: '@/pages/detail/index' },
   ],
   fastRefresh: {},
   history: {

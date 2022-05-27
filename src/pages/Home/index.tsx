@@ -64,15 +64,12 @@ export default function Home() {
   };
 
   const getWeather = async () => {
-    console.log(1);
     const res = await getLocation();
-    console.log(2, res);
     const data = await useService.getWeather({
       lat: (res && res.latitude) || 0,
       lon: (res && res.longitude) || 0,
       exclude: 'hourly,daily,minutely,alerts',
     });
-    console.log(3, data);
     weatherAction({
       ...weatherState,
       weather: {
