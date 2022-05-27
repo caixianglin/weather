@@ -23,7 +23,6 @@ export default defineConfig({
     type: 'hash',
   },
   outputPath: 'docs',
-  base: `${repo}`,
   publicPath: `${repo}`,
   webpack5: {},
   chainWebpack(config) {

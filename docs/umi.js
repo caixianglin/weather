@@ -12327,7 +12327,7 @@
           },
         });
         var r = n(97175),
-          a = { basename: 'https://caixianglin.github.io/weather/' };
+          a = { basename: '/' };
         window.routerBase && (a.basename = window.routerBase);
         var i = { NODE_ENV: 'production' }.__IS_SERVER ? null : (0, r.q_)(a),
           o = function () {
