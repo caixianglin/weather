@@ -1,5 +1,5 @@
 import { runApp, IAppConfig } from 'ice';
-import VConsole from 'vconsole';
+// import VConsole from 'vconsole';
 
 const appConfig: IAppConfig = {
   app: {
@@ -10,6 +10,6 @@ const appConfig: IAppConfig = {
   },
 };
 
-new VConsole();
+// new VConsole();
 
 runApp(appConfig);

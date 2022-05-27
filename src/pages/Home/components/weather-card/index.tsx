@@ -16,7 +16,7 @@ export default function WeatherCard(props: CardProps) {
         <div className={styles.card}>
             <img className={styles.img} src={WeathersStatus[weather?.main]} />
             <div className={styles.cardContent}>
-                <h3>{location.city}, {location.province}</h3>
+                <h3>{location.city || '-'}, {location.province || '-'}</h3>
                 <div className={styles.info}>
                     <div className={styles.infoLeft}>
                         <p>{weather?.temp}<i>℃</i></p>
