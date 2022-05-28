@@ -26009,59 +26009,61 @@
                           );
                         case 2:
                           (t = e.sent),
-                            p(
-                              (0, o.Z)(
-                                (0, o.Z)({}, l),
-                                {},
-                                {
-                                  weather: {
-                                    temp: t.current.temp.toFixed(0),
-                                    humidity: t.current.humidity,
-                                    wind: t.current.wind_speed,
-                                    rain: t.current.rain
-                                      ? t.current.rain['1h']
-                                      : 0,
-                                    main: t.current.weather[0].main,
-                                    mainList:
-                                      t.current.weather[0].description.split(
-                                        '\uff0c',
-                                      ),
-                                    daily:
-                                      t.daily &&
-                                      t.daily
-                                        .slice(0, 7)
-                                        .map((e) => ({
-                                          id: e.dt,
-                                          week: (0, af.Q)(
-                                            rf().unix(e.dt).day(),
-                                          ),
-                                          icon:
-                                            e.weather &&
-                                            e.weather[0] &&
-                                            e.weather[0].main &&
-                                            h.vi[e.weather[0].main],
-                                          tempHigh:
-                                            e.temp &&
-                                            e.temp.max &&
-                                            e.temp.max.toFixed(0),
-                                          tempLow:
-                                            e.temp &&
-                                            e.temp.min &&
-                                            e.temp.min.toFixed(0),
-                                        })),
-                                    hourly:
-                                      t.hourly &&
-                                      t.hourly
-                                        .slice(0, 24)
-                                        .map((e) => ({
-                                          id: e.dt,
-                                          temp: e.temp.toFixed(0),
-                                          time: rf().unix(e.dt).format('H a'),
-                                        })),
+                            t &&
+                              t.current &&
+                              p(
+                                (0, o.Z)(
+                                  (0, o.Z)({}, l),
+                                  {},
+                                  {
+                                    weather: {
+                                      temp: t.current.temp.toFixed(0),
+                                      humidity: t.current.humidity,
+                                      wind: t.current.wind_speed,
+                                      rain: t.current.rain
+                                        ? t.current.rain['1h']
+                                        : 0,
+                                      main: t.current.weather[0].main,
+                                      mainList:
+                                        t.current.weather[0].description.split(
+                                          '\uff0c',
+                                        ),
+                                      daily:
+                                        t.daily &&
+                                        t.daily
+                                          .slice(0, 7)
+                                          .map((e) => ({
+                                            id: e.dt,
+                                            week: (0, af.Q)(
+                                              rf().unix(e.dt).day(),
+                                            ),
+                                            icon:
+                                              e.weather &&
+                                              e.weather[0] &&
+                                              e.weather[0].main &&
+                                              h.vi[e.weather[0].main],
+                                            tempHigh:
+                                              e.temp &&
+                                              e.temp.max &&
+                                              e.temp.max.toFixed(0),
+                                            tempLow:
+                                              e.temp &&
+                                              e.temp.min &&
+                                              e.temp.min.toFixed(0),
+                                          })),
+                                      hourly:
+                                        t.hourly &&
+                                        t.hourly
+                                          .slice(0, 24)
+                                          .map((e) => ({
+                                            id: e.dt,
+                                            temp: e.temp.toFixed(0),
+                                            time: rf().unix(e.dt).format('H a'),
+                                          })),
+                                    },
                                   },
-                                },
-                              ),
-                            );
+                                ),
+                              );
                         case 4:
                         case 'end':
                           return e.stop();

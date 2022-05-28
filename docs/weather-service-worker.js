@@ -1,63 +1,69 @@
 if (!self.define) {
   let e,
     n = {};
-  const t = (t, s) => (
-    (t = new URL(t + '.js', s).href),
-    n[t] ||
+  const s = (s, t) => (
+    (s = new URL(s + '.js', t).href),
+    n[s] ||
       new Promise((n) => {
         if ('document' in self) {
           const e = document.createElement('script');
-          (e.src = t), (e.onload = n), document.head.appendChild(e);
-        } else (e = t), importScripts(t), n();
+          (e.src = s), (e.onload = n), document.head.appendChild(e);
+        } else (e = s), importScripts(s), n();
       }).then(() => {
-        let e = n[t];
-        if (!e) throw new Error(`Module ${t} didn’t register its module`);
+        let e = n[s];
+        if (!e) throw new Error(`Module ${s} didn’t register its module`);
         return e;
       })
   );
-  self.define = (s, c) => {
-    const i =
+  self.define = (t, c) => {
+    const a =
       e ||
       ('document' in self ? document.currentScript.src : '') ||
       location.href;
-    if (n[i]) return;
-    let a = {};
-    const o = (e) => t(e, i),
-      r = { module: { uri: i }, exports: a, require: o };
-    n[i] = Promise.all(s.map((e) => r[e] || o(e))).then((e) => (c(...e), a));
+    if (n[a]) return;
+    let i = {};
+    const r = (e) => s(e, a),
+      o = { module: { uri: a }, exports: i, require: r };
+    n[a] = Promise.all(t.map((e) => o[e] || r(e))).then((e) => (c(...e), i));
   };
 }
-define(['./workbox-44ab555c'], function (e) {
+define(['./workbox-b6c1ab40'], function (e) {
   'use strict';
   e.setCacheNameDetails({ prefix: 'weeather-pwa' }),
     self.skipWaiting(),
     e.clientsClaim(),
     e.registerRoute(
       /^https:\/\/restapi.amap\.com\//,
-      new e.NetworkFirst({
+      new e.StaleWhileRevalidate({
         cacheName: 'cached-map-api',
-        networkTimeoutSeconds: 6,
         plugins: [
           new e.ExpirationPlugin({ maxEntries: 50, maxAgeSeconds: 600 }),
-          new e.CacheableResponsePlugin({ statuses: [0, 200] }),
         ],
       }),
       'GET',
     ),
     e.registerRoute(
       /^https:\/\/api.openweathermap\.org\//,
-      new e.NetworkFirst({
+      new e.StaleWhileRevalidate({
         cacheName: 'cached-weather-api',
-        networkTimeoutSeconds: 6,
         plugins: [
           new e.ExpirationPlugin({ maxEntries: 50, maxAgeSeconds: 600 }),
-          new e.CacheableResponsePlugin({ statuses: [0, 200] }),
         ],
       }),
       'GET',
     ),
     e.registerRoute(
-      /\.(css|js|png|jpg|jpeg|svg|webp)$/i,
+      /\.(css|js)$/i,
+      new e.StaleWhileRevalidate({
+        cacheName: 'static-cache',
+        plugins: [
+          new e.ExpirationPlugin({ maxEntries: 20, maxAgeSeconds: 600 }),
+        ],
+      }),
+      'GET',
+    ),
+    e.registerRoute(
+      /\.png$/i,
       new e.CacheFirst({
         cacheName: 'static-cache',
         plugins: [
@@ -68,10 +74,11 @@ define(['./workbox-44ab555c'], function (e) {
     ),
     e.registerRoute(
       /\//i,
-      new e.CacheFirst({
+      new e.NetworkFirst({
         cacheName: 'html-cache',
         plugins: [
           new e.ExpirationPlugin({ maxEntries: 20, maxAgeSeconds: 600 }),
+          new e.CacheableResponsePlugin({ statuses: [0, 200] }),
         ],
       }),
       'GET',
