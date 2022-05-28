@@ -57,18 +57,7 @@ export default defineConfig({
             },
           },
           {
-            urlPattern: /\.(css|js)$/i,
-            handler: 'StaleWhileRevalidate',
-            options: {
-              cacheName: 'static-cache',
-              expiration: {
-                maxEntries: 20,
-                maxAgeSeconds: 10 * 60,
-              },
-            },
-          },
-          {
-            urlPattern: /\.png$/i,
+            urlPattern: /\.(css|js|png)$/i,
             handler: 'CacheFirst',
             options: {
               cacheName: 'static-cache',
