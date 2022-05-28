@@ -26084,7 +26084,7 @@
                   className: ef().img,
                   src: Kd(),
                   onClick: () => {
-                    null === f.m8 || void 0 === f.m8 || f.m8.replace('/');
+                    null === f.m8 || void 0 === f.m8 || f.m8.push('/');
                   },
                 }),
                 (0, y.jsx)(v, { weather: l.weather, location: e.query }),
@@ -67962,7 +67962,7 @@
       };
     })(),
     (function () {
-      n.p = 'https://caixianglin.github.io/weather/';
+      n.p = '/weather/';
     })();
   !(function () {
     'use strict';

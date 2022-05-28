@@ -29,7 +29,7 @@ if (!self.define) {
 }
 define(['./workbox-44ab555c'], function (e) {
   'use strict';
-  e.setCacheNameDetails({ prefix: 'webpack-pwa' }),
+  e.setCacheNameDetails({ prefix: 'weeather-pwa' }),
     self.skipWaiting(),
     e.clientsClaim(),
     e.registerRoute(

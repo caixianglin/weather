@@ -81,7 +81,7 @@ export default function Detail() {
         className={styles.img}
         src={backUrl}
         onClick={() => {
-          history?.replace('/');
+          history?.push('/');
         }}
       />
       <TodayWeather weather={weatherState.weather} location={location.query} />

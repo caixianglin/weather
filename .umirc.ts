@@ -1,10 +1,7 @@
 import { defineConfig } from 'umi';
 const { GenerateSW } = require('workbox-webpack-plugin');
 
-const repo =
-  process.env.NODE_ENV === 'development'
-    ? '/'
-    : 'https://caixianglin.github.io/weather/';
+const path = process.env.NODE_ENV === 'development' ? '/' : '/weather/';
 
 const mfsu =
   process.env.NODE_ENV === 'development'
@@ -23,7 +20,7 @@ export default defineConfig({
     type: 'hash',
   },
   outputPath: 'docs',
-  publicPath: `${repo}`,
+  publicPath: `${path}`,
   webpack5: {},
   chainWebpack(config) {
     config.module
@@ -34,7 +31,7 @@ export default defineConfig({
 
     config.plugin('workbox').use(GenerateSW, [
       {
-        cacheId: 'webpack-pwa',
+        cacheId: 'weeather-pwa',
         skipWaiting: true,
         clientsClaim: true,
         cleanupOutdatedCaches: true,
