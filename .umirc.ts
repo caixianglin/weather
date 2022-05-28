@@ -70,10 +70,10 @@ export default defineConfig({
             },
           },
           {
-            urlPattern: /.*\.js.*/i,
+            urlPattern: /\.(css|js|png|jpg|jpeg|svg|webp)$/i,
             handler: 'CacheFirst',
             options: {
-              cacheName: 'seed-js',
+              cacheName: 'static-cache',
               expiration: {
                 maxEntries: 20,
                 maxAgeSeconds: 10 * 60,
@@ -84,31 +84,9 @@ export default defineConfig({
             urlPattern: /\//i,
             handler: 'CacheFirst',
             options: {
-              cacheName: 'seed-html',
+              cacheName: 'html-cache',
               expiration: {
                 maxEntries: 20,
-                maxAgeSeconds: 10 * 60,
-              },
-            },
-          },
-          {
-            urlPattern: /.*css.*/,
-            handler: 'CacheFirst',
-            options: {
-              cacheName: 'seed-css',
-              expiration: {
-                maxEntries: 30,
-                maxAgeSeconds: 10 * 60,
-              },
-            },
-          },
-          {
-            urlPattern: /.*(png|svga).*/,
-            handler: 'CacheFirst',
-            options: {
-              cacheName: 'seed-image',
-              expiration: {
-                maxEntries: 30,
                 maxAgeSeconds: 10 * 60,
               },
             },

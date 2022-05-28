@@ -1,30 +1,30 @@
 if (!self.define) {
   let e,
-    s = {};
-  const n = (n, t) => (
-    (n = new URL(n + '.js', t).href),
-    s[n] ||
-      new Promise((s) => {
+    n = {};
+  const t = (t, s) => (
+    (t = new URL(t + '.js', s).href),
+    n[t] ||
+      new Promise((n) => {
         if ('document' in self) {
           const e = document.createElement('script');
-          (e.src = n), (e.onload = s), document.head.appendChild(e);
-        } else (e = n), importScripts(n), s();
+          (e.src = t), (e.onload = n), document.head.appendChild(e);
+        } else (e = t), importScripts(t), n();
       }).then(() => {
-        let e = s[n];
-        if (!e) throw new Error(`Module ${n} didn’t register its module`);
+        let e = n[t];
+        if (!e) throw new Error(`Module ${t} didn’t register its module`);
         return e;
       })
   );
-  self.define = (t, a) => {
-    const c =
+  self.define = (s, c) => {
+    const i =
       e ||
       ('document' in self ? document.currentScript.src : '') ||
       location.href;
-    if (s[c]) return;
-    let i = {};
-    const o = (e) => n(e, c),
-      m = { module: { uri: c }, exports: i, require: o };
-    s[c] = Promise.all(t.map((e) => m[e] || o(e))).then((e) => (a(...e), i));
+    if (n[i]) return;
+    let a = {};
+    const o = (e) => t(e, i),
+      r = { module: { uri: i }, exports: a, require: o };
+    n[i] = Promise.all(s.map((e) => r[e] || o(e))).then((e) => (c(...e), a));
   };
 }
 define(['./workbox-44ab555c'], function (e) {
@@ -57,9 +57,9 @@ define(['./workbox-44ab555c'], function (e) {
       'GET',
     ),
     e.registerRoute(
-      /.*\.js.*/i,
+      /\.(css|js|png|jpg|jpeg|svg|webp)$/i,
       new e.CacheFirst({
-        cacheName: 'seed-js',
+        cacheName: 'static-cache',
         plugins: [
           new e.ExpirationPlugin({ maxEntries: 20, maxAgeSeconds: 600 }),
         ],
@@ -69,29 +69,9 @@ define(['./workbox-44ab555c'], function (e) {
     e.registerRoute(
       /\//i,
       new e.CacheFirst({
-        cacheName: 'seed-html',
+        cacheName: 'html-cache',
         plugins: [
           new e.ExpirationPlugin({ maxEntries: 20, maxAgeSeconds: 600 }),
-        ],
-      }),
-      'GET',
-    ),
-    e.registerRoute(
-      /.*css.*/,
-      new e.CacheFirst({
-        cacheName: 'seed-css',
-        plugins: [
-          new e.ExpirationPlugin({ maxEntries: 30, maxAgeSeconds: 600 }),
-        ],
-      }),
-      'GET',
-    ),
-    e.registerRoute(
-      /.*(png|svga).*/,
-      new e.CacheFirst({
-        cacheName: 'seed-image',
-        plugins: [
-          new e.ExpirationPlugin({ maxEntries: 30, maxAgeSeconds: 600 }),
         ],
       }),
       'GET',
